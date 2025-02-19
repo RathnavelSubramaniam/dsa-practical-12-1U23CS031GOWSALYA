@@ -16,14 +16,31 @@ public class LinkedStack {
     }
     public boolean isEmpty()
     {
+        return top==null;
         // TYPE YOUR CODE HERE
     }
     public void push(int data) 
     {
-         // TYPE YOUR CODE HERE    
+        Node newNode=new Node(data);
+        if(top==null){top=newNode;}
+        else{
+            newNode.next=top;
+            top=newNode;
+         // TYPE YOUR CODE HERE  
+        }  
 }
     public int pop() 
     {
+        if(isEmpty()){
+            System.out.println("Stack is empty!");
+            return -1;}
+        else{
+            int returnVal=top.data;
+            Node temp=top.next;
+            top.next=null;
+            top=temp;
+            return returnVal;
+        }
         // TYPE YOUR CODE HERE
     }
      public static void main(String[] args) {
@@ -83,4 +100,3 @@ public void displayStack() {
     System.out.println("null");
 }
 }
-
